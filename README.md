@@ -9,7 +9,7 @@ Features:
 - full ipc-protocol-v2 support (in dwl and in dwl-bar), so you can click on the bar with your mouse and move across your desktops.
 - support enabled for xwayland.
 - swallow (hiding terminals under their child windows) and other things that makes the wm usable for me.
-- clipboard unified across programs, in particular the function in the zsh.rc that makes the "copy-pasting in the terminals" to use wl-clipboard.
+- clipboard unified across programs, in particular the function in the .zshrc that makes the "copy-pasting in the terminals" to use wl-clipboard.
 - some choices are specific for my machine: a thinkpad x200 with uk keyboard running gentoo and (obviously) wayland.
 - a beautiful wallpaper, the Tower of Babel of Pieter Bruegel. I picked it from www.wikipedia.org.
 
