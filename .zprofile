@@ -45,4 +45,4 @@ export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
-exec dbus-run-session dwl -s $HOME/.local/bin/dwlstartup
+exec dbus-run-session dwl -s $HOME/dwlstartup
