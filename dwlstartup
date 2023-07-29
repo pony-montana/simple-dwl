@@ -1,0 +1,6 @@
+#!/bin/sh
+
+gentoo-pipewire-launcher &
+dwl-bar &<- &
+someblocks -s /tmp/1000-runtime-dir/dwl-bar-0 &
+swaybg -i $HOME/.local/share/bg/babel.jpg
