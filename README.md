@@ -3,7 +3,11 @@ wayland dwm clone; this is just my simple setup/clone.
 Programs included:
 - my setup/clone of dwl.
 - my setup/clone of dwl-bar, a clone of the dwm default bar.
-- my setup/clone of someblocks, a clone of dwmblocks. Just two simple and ugly blocks to put on the bar, just to show how it works. 
+- my setup/clone of someblocks, a clone of dwmblocks. Just two simple and ugly blocks to put on the bar, just to show how it works.
+
+
+!!! I putted the original readme in the respective folder. Note that the informations from it could be ambiguos. For example, dwl-bar readme says that if you want the ipc-protocol working you need to apply a patch. FALSE! These patch are just applied in the code. In general, the code here is ready to be compiled with my modifications. If reading readmes you feel you want to dive more into these programs, please go to the respective upstreams. In the end, do what you want but I'm not responsible for nothing here, I'm just sharing free code.
+
 
 Features:
 - full ipc-protocol-v2 support (in dwl and in dwl-bar), so you can click on the bar with your mouse and move across your desktops.
