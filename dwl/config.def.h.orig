@@ -1,9 +1,3 @@
-#include <X11/XF86keysym.h>
-
-/* constants */
-#define TERMINAL "foot"
-#define BROWSER "firefox-bin"
-
 /* appearance */
 static const int sloppyfocus               = 1;  /* focus follows mouse */
 static const int bypass_surface_visibility = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
@@ -13,25 +7,16 @@ static const float focuscolor[]            = {1.0, 0.0, 0.0, 1.0};
 /* To conform the xdg-protocol, set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0};
 
-/* Autostart */
-static const char *const autostart[] = {
-        "gentoo-pipewire-launcher", NULL,
-	"dwl-bar", "&<-", NULL,
-	"someblocks", "-s", "/tmp/1000-runtime-dir/dwl-bar-0", NULL,
-	"swaybg", "-i", "/home/fu/.local/share/bg/babel.jpg", NULL,
-        NULL /* terminate */
-};
-
 /* tagging - tagcount must be no greater than 31 */
-static const int tagcount = 9;
+#define TAGCOUNT (9)
+static const int tagcount = TAGCOUNT;
 
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating  isterm  noswallow  monitor */
+	/* app_id     title       tags mask     isfloating   monitor */
 	/* examples:
-	{ "Gimp",       NULL,       0,            1,          0,      1,         -1 },
-	{ "firefox",    NULL,       1 << 8,       0,          0,      1,         -1 },
+	{ "Gimp",     NULL,       0,            1,           -1 },
 	*/
-	{ TERMINAL,     NULL,       0,            0,          1,      1,         -1 },
+	{ "firefox",  NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -55,12 +40,14 @@ static const MonitorRule monrules[] = {
 /* keyboard */
 static const struct xkb_rule_names xkb_rules = {
 	/* can specify fields: rules, model, layout, variant, options */
-	.layout  = "gb",
-	.options = "caps:super",
+	/* example:
+	.options = "ctrl:nocaps",
+	*/
+	.options = NULL,
 };
 
-static const int repeat_rate = 35;
-static const int repeat_delay = 250;
+static const int repeat_rate = 25;
+static const int repeat_delay = 600;
 
 /* Trackpad */
 static const int tap_to_click = 1;
@@ -105,7 +92,7 @@ LIBINPUT_CONFIG_TAP_MAP_LMR -- 1/2/3 finger tap maps to left/middle/right
 static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TAP_MAP_LRM;
 
 /* If you want to use the windows key for MODKEY, use WLR_MODIFIER_LOGO */
-#define MODKEY WLR_MODIFIER_LOGO
+#define MODKEY WLR_MODIFIER_ALT
 
 #define TAGKEYS(KEY,SKEY,TAG) \
 	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
@@ -123,39 +110,40 @@ static const char *menucmd[] = { "bemenu-run", NULL };
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
-        { 0,                         XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.4") },
-	{ 0,                         XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-") },
-	{ MODKEY,                    XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+ --limit 1.4") },
-	{ MODKEY,                    XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-") },
-	{ MODKEY,                    XKB_KEY_d,          spawn,            {.v = menucmd} },
-	{ MODKEY,                    XKB_KEY_Return,     spawn,            {.v = termcmd} },
-        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
-        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("wlr-randr --output LVDS-1 --off") },
-        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("wlr-randr --output LVDS-1 --on") },
-        { MODKEY,                    XKB_KEY_s,          spawn,          SHCMD("grim") },
-	{ MODKEY,	             XKB_KEY_w,		 spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,                    XKB_KEY_k,          focusstack,       {.i = +1} },
-	{ MODKEY,                    XKB_KEY_j,          focusstack,       {.i = -1} },
-	{ MODKEY,                    XKB_KEY_h,          setmfact,         {.f = -0.05} },
-	{ MODKEY,                    XKB_KEY_l,          setmfact,         {.f = +0.05} },
-	{ MODKEY,                    XKB_KEY_q,          killclient,       {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_T,          spawn,          SHCMD(TERMINAL " -e tremc") },
-	{ MODKEY,                    XKB_KEY_t,          spawn,          SHCMD(TERMINAL " -e htop") },
-	{ MODKEY,                    XKB_KEY_m,          spawn,          SHCMD(TERMINAL " -e neomutt") },
-	{ MODKEY,                    XKB_KEY_r,          spawn,          SHCMD(TERMINAL " -e ranger") },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     zoom,             {0} },
-        { MODKEY,                    XKB_KEY_f,          togglefullscreen, {0} },
-        { MODKEY,                    XKB_KEY_space,      spawn,            {.v = termcmd} },
-	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                       0),
-	TAGKEYS(          XKB_KEY_2, XKB_KEY_quotedbl,                     1),
-	TAGKEYS(          XKB_KEY_3, XKB_KEY_sterling,                     2),
-	TAGKEYS(          XKB_KEY_4, XKB_KEY_dollar,                       3),
-	TAGKEYS(          XKB_KEY_5, XKB_KEY_percent,                      4),
-	TAGKEYS(          XKB_KEY_6, XKB_KEY_asciicircum,                  5),
-	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                    6),
-	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                     7),
-	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                    8),
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,             {0} },
+	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = menucmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          {.v = termcmd} },
+    { MODKEY,                    XKB_KEY_b,          toggle_visibility, {0}},
+	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
+	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
+	{ MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
+	{ MODKEY,                    XKB_KEY_d,          incnmaster,     {.i = -1} },
+	{ MODKEY,                    XKB_KEY_h,          setmfact,       {.f = -0.05} },
+	{ MODKEY,                    XKB_KEY_l,          setmfact,       {.f = +0.05} },
+	{ MODKEY,                    XKB_KEY_Return,     zoom,           {0} },
+	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,          killclient,     {0} },
+	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                    XKB_KEY_f,          setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
+	{ MODKEY,                    XKB_KEY_e,         togglefullscreen, {0} },
+	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },
+	{ MODKEY,                    XKB_KEY_comma,      focusmon,       {.i = WLR_DIRECTION_LEFT} },
+	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
+	TAGKEYS(          XKB_KEY_1, XKB_KEY_exclam,                     0),
+	TAGKEYS(          XKB_KEY_2, XKB_KEY_at,                         1),
+	TAGKEYS(          XKB_KEY_3, XKB_KEY_numbersign,                 2),
+	TAGKEYS(          XKB_KEY_4, XKB_KEY_dollar,                     3),
+	TAGKEYS(          XKB_KEY_5, XKB_KEY_percent,                    4),
+	TAGKEYS(          XKB_KEY_6, XKB_KEY_asciicircum,                5),
+	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                  6),
+	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                   7),
+	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                  8),
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,           {0} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
 	{ WLR_MODIFIER_CTRL|WLR_MODIFIER_ALT,XKB_KEY_Terminate_Server, quit, {0} },
@@ -169,4 +157,3 @@ static const Button buttons[] = {
 	{ MODKEY, BTN_MIDDLE, togglefloating, {0} },
 	{ MODKEY, BTN_RIGHT,  moveresize,     {.ui = CurResize} },
 };
-

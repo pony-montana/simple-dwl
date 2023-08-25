@@ -13,6 +13,15 @@ static const float focuscolor[]            = {1.0, 0.0, 0.0, 1.0};
 /* To conform the xdg-protocol, set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0};
 
+/* Autostart */
+static const char *const autostart[] = {
+        "gentoo-pipewire-launcher", NULL,
+	"dwl-bar", "&<-", NULL,
+	"someblocks", "-s", "/tmp/1000-runtime-dir/dwl-bar-0", NULL,
+	"swaybg", "-i", "/home/fu/.local/share/bg/babel.jpg", NULL,
+        NULL /* terminate */
+};
+
 /* tagging - tagcount must be no greater than 31 */
 static const int tagcount = 9;
 
@@ -40,7 +49,7 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	*/
 	/* defaults */
-	{ NULL,       0.55, 1,      1.15,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
+	{ NULL,       0.55, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 };
 
 /* keyboard */
@@ -120,7 +129,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-") },
 	{ MODKEY,                    XKB_KEY_d,          spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,            {.v = termcmd} },
-        { MODKEY,	             XKB_KEY_o,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
+        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
+        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("wlr-randr --output LVDS-1 --off") },
+        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("wlr-randr --output LVDS-1 --on") },
         { MODKEY,                    XKB_KEY_s,          spawn,          SHCMD("grim") },
 	{ MODKEY,	             XKB_KEY_w,		 spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,       {.i = +1} },
@@ -128,6 +139,8 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_h,          setmfact,         {.f = -0.05} },
 	{ MODKEY,                    XKB_KEY_l,          setmfact,         {.f = +0.05} },
 	{ MODKEY,                    XKB_KEY_q,          killclient,       {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_T,          spawn,          SHCMD(TERMINAL " -e tremc") },
+	{ MODKEY,                    XKB_KEY_t,          spawn,          SHCMD(TERMINAL " -e htop") },
 	{ MODKEY,                    XKB_KEY_m,          spawn,          SHCMD(TERMINAL " -e neomutt") },
 	{ MODKEY,                    XKB_KEY_r,          spawn,          SHCMD(TERMINAL " -e ranger") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     zoom,             {0} },
