@@ -41,8 +41,8 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export HISTFILE="$XDG_DATA_HOME/history"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
-
+export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 
 [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
-exec dbus-run-session dwl -s $HOME/dwlstartup
+exec dbus-run-session dwl

@@ -24,7 +24,7 @@ I happily use:
 - zsh (shell)
 - imv (image viewer)
 - zathura (pdf viewer)
-- swaybg (wallpaper selector)
+- wbg (wallpaper selector)
 - swaylock (to lock your pc when you are away)
 - wl-clipboard (simple clipboard for wayland)
-- other common stuffs.
+- other stuffs.
