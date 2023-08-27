@@ -18,7 +18,7 @@ static const char *const autostart[] = {
         "gentoo-pipewire-launcher", NULL,
 	"dwl-bar", "&<-", NULL,
 	"someblocks", "-s", "/tmp/1000-runtime-dir/dwl-bar-0", NULL,
-	"swaybg", "-i", "/home/fu/.local/share/bg/babel.jpg", NULL,
+	"wbg", "/home/fu/.local/share/bg/babel.jpg", NULL,
         NULL /* terminate */
 };
 
@@ -123,15 +123,13 @@ static const char *menucmd[] = { "bemenu-run", NULL };
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
-        { 0,                         XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1.4") },
-	{ 0,                         XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-") },
-	{ MODKEY,                    XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+ --limit 1.4") },
-	{ MODKEY,                    XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-") },
+        { 0,                         XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+ --limit 1.5") },
+	{ 0,                         XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-") },
 	{ MODKEY,                    XKB_KEY_d,          spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,            {.v = termcmd} },
         { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
-        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("wlr-randr --output LVDS-1 --off") },
-        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("wlr-randr --output LVDS-1 --on") },
+        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.off") },
+        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.on") },
         { MODKEY,                    XKB_KEY_s,          spawn,          SHCMD("grim") },
 	{ MODKEY,	             XKB_KEY_w,		 spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,       {.i = +1} },
