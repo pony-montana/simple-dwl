@@ -42,8 +42,13 @@ You find the pseudo-complete list in .local/share/packagelist.txt
 
 You can find some alternatives in https://github.com/natpen/awesome-wayland.
 
-# DONATIONS
+# DONATIONS 
+
+![Bitcoin_accepted_here-1024x512-1883043927](https://github.com/pony-montana/simple-dwl/assets/96387969/a8604d5c-305a-4701-b6a1-1f4fb2d45a91)
+
 
 Just in case someone appreciate my work, you can donate some sats (bitcoin) ("absolute digital scarcity", if you prefer) at:
+
+![wallet](https://github.com/pony-montana/simple-dwl/assets/96387969/17d2399d-8f19-4ac8-8a3f-91b56c6d4199)
 
 bc1qvvk2z8pp2sl3y5cmuy32dr7egnr9ktv5grlccz
