@@ -40,3 +40,9 @@ If reading readmes you feel you want to dive more into these programs, please go
 You find the pseudo-complete list in .local/share/packagelist.txt
 
 You can find some alternatives in https://github.com/natpen/awesome-wayland.
+
+# DONATIONS
+
+Just in case someone appreciate my work, you can donate at:
+
+bc1qvvk2z8pp2sl3y5cmuy32dr7egnr9ktv5grlccz
