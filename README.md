@@ -1,5 +1,5 @@
 # simple-dwl
-wayland dwm clone; this is just my simple setup/clone.
+wayland dwm clone; this is just my simple setup/fork.
 Programs included:
 - my setup/fork of dwl.
 - my setup/fork of dwl-bar, a clone of the dwm default bar.
