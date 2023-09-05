@@ -43,6 +43,6 @@ You can find some alternatives in https://github.com/natpen/awesome-wayland.
 
 # DONATIONS
 
-Just in case someone appreciate my work, you can donate at:
+Just in case someone appreciate my work, you can donate some sats (bitcoin) ("absolute digital scarcity", if you prefer) at:
 
 bc1qvvk2z8pp2sl3y5cmuy32dr7egnr9ktv5grlccz
