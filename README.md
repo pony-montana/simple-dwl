@@ -32,7 +32,7 @@ If reading readmes you feel you want to dive more into these programs, please go
 - swallow (hiding terminals under their child windows) and other things that makes the wm usable for me.
 - clipboard unified across programs, in particular the function in the .zshrc that makes the "copy-pasting in the terminals" to use wl-clipboard.
 - reproducing images in the terminal with ranger + foot + imagemagick(sixel).
-- some choices are specific for my machine: a thinkpad x200 with uk keyboard running gentoo and (obviously) wayland.
+- some choices are specific for my machine: a thinkpad x200 with uk keyboard running gentoo and (obviously) wayland. I don't use pipewire on this machine/setup, but just pure alsa.
 - a beautiful wallpaper, the Tower of Babel of Pieter Bruegel. I picked it from www.wikipedia.org.
 
 

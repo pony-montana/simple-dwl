@@ -1,7 +1,7 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-{"🔊", "wpctl get-volume @DEFAULT_AUDIO_SINK@",	                 1,		0},
+{"🔊", "amixer get Master | egrep -o '[0-9]{1,3}%'",	                 1,		0},
 
 	{"🔋", "cat /sys/class/power_supply/BAT0/capacity",	30,		0},
 
