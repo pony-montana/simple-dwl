@@ -25,9 +25,5 @@ media-gfx/imagemagick
 app-shells/fzf
 app-misc/ranger
 app-text/zathura-pdf-mupdf
-media-fonts/noto
-media-fonts/noto-emoji
-mail-client/mutt-wizard
-sys-fs/simple-mtpfs
-net-p2p/tremc
-net-p2p/transmission
+
+other stuff are common and/or are not important for this dwl desktop .
