@@ -10,9 +10,20 @@ Programs included:
 # REPOSITORY MAP
 
 The programs you are here for are probably in .local/src/
+
 You will find dotfiles in .config
 
-!!! I putted the original readme in the respective folder. Note that the informations from it could be ambiguos. For example, dwl-bar readme says that if you want the ipc-protocol working you need to apply a patch. FALSE! These patch are already been applied in the code. In general, the code here is ready to be compiled with my modifications. If reading readmes you feel you want to dive more into these programs, please go to the respective upstreams. In the end, do what you want but I'm not responsible for nothing here, I'm just sharing free code.
+The original tower of babel everyone is searching that I stole from the museum of Wi Kipedia is in .local/share/bg
+
+You can now clone this repo and copy the dotfiles in the right places.
+
+# ATTENTION
+
+!!! I putted the original readme in the respective folder so you can read all the informations you need to build programs.
+
+Note that the informations from programs README are ambiguos. For example, dwl-bar readme says that if you want the ipc-protocol working you need to apply a patch. FALSE! These patch are already been applied in the code. In general, the code here is ready to be compiled with my modifications.
+
+If reading readmes you feel you want to dive more into these programs, please go to the respective upstreams. In the end, do what you want but I'm not responsible for nothing here, I'm just sharing free code.
 
 # Features
 
@@ -25,7 +36,7 @@ You will find dotfiles in .config
 
 To complete your setup, you probably will need some programs from https://github.com/natpen/awesome-wayland.
 
-I happily use:
+I use also:
 - foot (wayland terminal)
 - zsh (shell)
 - imv (image viewer)
