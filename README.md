@@ -13,9 +13,9 @@ The programs you are here for are probably in .local/src/
 
 You will find dotfiles in .config
 
-The original tower of babel everyone is searching that I stole from the museum of Wi Kipedia is in .local/share/bg
+A pseudo-complete list of program I use is in .local/share/packagelist.txt
 
-You can now clone this repo and copy the dotfiles in the right places.
+The original tower of babel everyone is searching that I stole from the museum of Wi Kipedia is in .local/share/bg
 
 # ATTENTION
 
@@ -34,18 +34,9 @@ If reading readmes you feel you want to dive more into these programs, please go
 - some choices are specific for my machine: a thinkpad x200 with uk keyboard running gentoo and (obviously) wayland.
 - a beautiful wallpaper, the Tower of Babel of Pieter Bruegel. I picked it from www.wikipedia.org.
 
-To complete your setup, you probably will need some programs from https://github.com/natpen/awesome-wayland.
 
-#PROGRAM LIST
+# PROGRAM LIST
 
-I use also:
-- foot (wayland terminal)
-- zsh (shell)
-- imv (image viewer)
-- zathura (pdf viewer)
-- wbg (wallpaper selector)
-- swaylock (to lock your pc when you are away)
-- wl-clipboard (simple clipboard for wayland)
-- other stuffs.
+You find the pseudo-complete list in .local/share/packagelist.txt
 
-You find a pseudo-complete list in .local/share/packagelist.txt
+You can find some alternatives in https://github.com/natpen/awesome-wayland.
