@@ -36,6 +36,8 @@ If reading readmes you feel you want to dive more into these programs, please go
 
 To complete your setup, you probably will need some programs from https://github.com/natpen/awesome-wayland.
 
+#PROGRAM LIST
+
 I use also:
 - foot (wayland terminal)
 - zsh (shell)
@@ -45,3 +47,5 @@ I use also:
 - swaylock (to lock your pc when you are away)
 - wl-clipboard (simple clipboard for wayland)
 - other stuffs.
+
+You find a pseudo-complete list in .local/share/packagelist.txt

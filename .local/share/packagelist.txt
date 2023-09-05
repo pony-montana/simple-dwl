@@ -1,0 +1,33 @@
+From this repo:
+
+dwl
+dwl-bar
+someblocks
+wlsunset
+wbg
+
+
+From gentoo repos (you will find it in pretty all distro repos):
+
+
+gui-apps/wl-clipboard
+gui-apps/swaylock
+gui-apps/kanshi
+gui-apps/grim
+gui-apps/foot
+dev-libs/bemenu
+app-shells/zsh
+app-shells/zsh-syntax-highlighting
+app-editors/neovim
+media-video/mpv
+media-gfx/imv
+media-gfx/imagemagick
+app-shells/fzf
+app-misc/ranger
+app-text/zathura-pdf-mupdf
+media-fonts/noto
+media-fonts/noto-emoji
+mail-client/mutt-wizard
+sys-fs/simple-mtpfs
+net-p2p/tremc
+net-p2p/transmission
