@@ -100,4 +100,6 @@ bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
+
+# gentoo intalls zsh-syntax-highlighting.zsh in this folder. On arch-based distro you will find it in some different path, probably under /usr/zsh/...
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
