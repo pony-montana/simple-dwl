@@ -15,10 +15,10 @@ static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0};
 
 /* Autostart */
 static const char *const autostart[] = {
-        "gentoo-pipewire-launcher", NULL,
 	"dwl-bar", "&<-", NULL,
 	"someblocks", "-s", "/tmp/1000-runtime-dir/dwl-bar-0", NULL,
 	"wbg", "/home/fu/.local/share/bg/babel.jpg", NULL,
+	"wlsunset", "-t", "5000", "K", "-T", "5001", "K", NULL,
         NULL /* terminate */
 };
 
@@ -123,13 +123,13 @@ static const char *menucmd[] = { "bemenu-run", NULL };
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
-        { 0,                         XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%- && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+ --limit 1.5") },
-	{ 0,                         XF86XK_AudioLowerVolume,	         spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0%+ && wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-") },
+        { 0,                         XF86XK_AudioRaiseVolume,	         spawn,		SHCMD("amixer -q sset Master 3%+") },
+	{ 0,                         XF86XK_AudioLowerVolume,	         spawn,		SHCMD("amixer -q sset Master 3%-") },
 	{ MODKEY,                    XKB_KEY_d,          spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,            {.v = termcmd} },
         { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
-        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.off") },
-        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.on") },
+        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("pkill someblocks & pkill dwl-bar & kanshi -c $HOME/.config/kanshi/config.off") },
+        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.on & dwl-bar & someblocks -s /tmp/1000-runtime-dir/dwl-bar-0 & pkill kanshi") },
         { MODKEY,                    XKB_KEY_s,          spawn,          SHCMD("grim") },
 	{ MODKEY,	             XKB_KEY_w,		 spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,       {.i = +1} },
