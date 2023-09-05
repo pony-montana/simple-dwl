@@ -1,0 +1,3 @@
+option('png', type: 'feature')
+option('jpeg', type: 'feature')
+option('webp', type: 'feature')

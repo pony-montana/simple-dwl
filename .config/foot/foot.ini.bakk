@@ -1,0 +1,90 @@
+font=monospace:size=10
+dpi-aware=yes
+
+[scrollback]
+lines=3000
+
+[key-bindings]
+scrollback-up-page=Page_Up
+scrollback-down-page=Page_Down
+# -*- conf -*-
+# Deus
+# Color palette based on: https://github.com/ajmwagar/vim-deus
+
+[cursor]
+color=2c323b eaeaea
+
+[colors]
+alpha=0.85
+background=2c323b
+foreground=eaeaea
+regular0=242a32
+regular1=d54e53
+regular2=98c379
+regular3=e5c07b
+regular4=83a598
+regular5=c678dd
+regular6=70c0ba
+regular7=eaeaea
+bright0=666666
+bright1=ec3e45
+bright2=90c966
+bright3=edbf69
+bright4=73ba9f
+bright5=c858e9
+bright6=2bcec2
+bright7=ffffff
+
+# Enable if prefer Deus colors instead of inverterd fg/bg for
+# highlighting (mouse selection)
+# selection-foreground=2c323b
+# selection-background=eaeaea
+# Solarized light
+#[cursor]
+#color=fdf6e3 586e75
+#[colors]
+#alpha=0.8
+#background=              fdf6e3
+#foreground=              657b83
+#regular0=                eee8d5
+#regular1=                dc322f
+#regular2=                859900
+#regular3=                b58900
+#regular4=                268bd2
+#regular5=                d33682
+#regular6=                2aa198
+#regular7=                073642
+#bright0=                 cb4b16
+#bright1=                 fdf6e3
+#bright2=                 93a1a1
+#bright3=                 839496
+#bright4=                 657b83
+#bright5=                 6c71c4
+#bright6=                 586e75
+#bright7=                 002b36
+
+
+#random-rice-2
+#[cursor]
+#color=121212 BFBFBF
+#blink=yes
+#[colors]
+#alpha=0.8
+#background=121212
+#foreground=BFBFBF
+#regular0=121212
+#regular1=FF5454
+#regular2=00CC7A
+#regular3=FFD400
+#regular4=FF7B00
+#regular5=00C2FF
+#regular6=00E0D4
+#regular7=BFBFBF
+#bright0=808080
+#bright1=FF1A75
+#bright2=1AFFA3
+#bright3=FFFF00
+#bright4=FF9633
+#bright5=33CFFF
+#bright6=00FFF2
+#bright7=F9F9F9
