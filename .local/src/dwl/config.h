@@ -97,7 +97,7 @@ LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT
 LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE
 */
 static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
-static const double accel_speed = -0.2;
+static const double accel_speed = 0.0;
 /* You can choose between:
 LIBINPUT_CONFIG_TAP_MAP_LRM -- 1/2/3 finger tap maps to left/right/middle
 LIBINPUT_CONFIG_TAP_MAP_LMR -- 1/2/3 finger tap maps to left/middle/right
@@ -127,9 +127,9 @@ static const Key keys[] = {
 	{ 0,                         XF86XK_AudioLowerVolume,	         spawn,		SHCMD("amixer -q sset Master 3%-") },
 	{ MODKEY,                    XKB_KEY_d,          spawn,            {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,            {.v = termcmd} },
-        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_L,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
-        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_O,		 spawn,          SHCMD("pkill someblocks & pkill dwl-bar & kanshi -c $HOME/.config/kanshi/config.off") },
-        { MODKEY,                    XKB_KEY_o,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.on & dwl-bar & someblocks -s /tmp/1000-runtime-dir/dwl-bar-0 & pkill kanshi") },
+        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,		 spawn,          SHCMD("swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e") },
+        { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Z,		 spawn,          SHCMD("pkill someblocks & pkill dwl-bar & kanshi -c $HOME/.config/kanshi/config.off") },
+        { MODKEY,                    XKB_KEY_z,		 spawn,          SHCMD("kanshi -c $HOME/.config/kanshi/config.on & dwl-bar & someblocks -s /tmp/1000-runtime-dir/dwl-bar-0 & pkill kanshi") },
         { MODKEY,                    XKB_KEY_s,          spawn,          SHCMD("grim") },
 	{ MODKEY,	             XKB_KEY_w,		 spawn,		   {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,       {.i = +1} },

@@ -648,7 +648,7 @@ buttonpress(struct wl_listener *listener, void *data)
 		if (locked)
 			break;
 
-		/* Change focus if the button was _pressed_ over a client */
+		/* Change focus if the button was _pressed_ over a client
 		xytonode(cursor->x, cursor->y, NULL, &c, NULL, NULL, NULL);
 		if (c && (!client_is_unmanaged(c) || client_wants_focus(c)))
 			focusclient(c, 1);
@@ -663,6 +663,7 @@ buttonpress(struct wl_listener *listener, void *data)
 			}
 		}
 		break;
+*/
 	case WLR_BUTTON_RELEASED:
 		/* If you released any buttons, we exit interactive move/resize mode. */
 		if (!locked && cursor_mode != CurNormal && cursor_mode != CurPressed) {
@@ -3163,3 +3164,4 @@ main(int argc, char *argv[])
 usage:
 	die("Usage: %s [-v] [-s startup command]", argv[0]);
 }
+
