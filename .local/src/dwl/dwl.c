@@ -662,9 +662,9 @@ buttonpress(struct wl_listener *listener, void *data)
 				return;
 			}
 		}
-/*
+
 		break;
-*/
+
 	case WLR_BUTTON_RELEASED:
 		/* If you released any buttons, we exit interactive move/resize mode. */
 		if (!locked && cursor_mode != CurNormal && cursor_mode != CurPressed) {
