@@ -152,6 +152,7 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_7, XKB_KEY_ampersand,                    6),
 	TAGKEYS(          XKB_KEY_8, XKB_KEY_asterisk,                     7),
 	TAGKEYS(          XKB_KEY_9, XKB_KEY_parenleft,                    8),
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_BackSpace,  spawn,          SHCMD("doas poweroff") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Q,          quit,             {0} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
