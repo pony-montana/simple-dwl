@@ -49,6 +49,4 @@ You can find some alternatives in https://github.com/natpen/awesome-wayland.
 
 Just in case someone appreciate my work, you can donate some sats (bitcoin) ("absolute digital scarcity", if you prefer) at:
 
-![wallet](https://github.com/pony-montana/simple-dwl/assets/96387969/17d2399d-8f19-4ac8-8a3f-91b56c6d4199)
-
-bc1qvvk2z8pp2sl3y5cmuy32dr7egnr9ktv5grlccz
+bc1qj4mjzdh56eapv9cyrcwd56cffxhzm7ay5u0ptl
